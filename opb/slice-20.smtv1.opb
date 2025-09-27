@@ -1,0 +1,31 @@
+* (set-option :incremental false)
+* (set-info :status unsat)
+* (set-logic QF_BV)
+* (declare-fun x1 () (_ BitVec 4))
+* (declare-fun y1 () (_ BitVec 4))
+* (declare-fun x2 () (_ BitVec 2))
+* (declare-fun y2 () (_ BitVec 2))
+* (declare-fun x3 () (_ BitVec 1))
+* (declare-fun y3 () (_ BitVec 1))
+* (assert (= x1 y1))
+* (assert (= x1 (concat x2 x2)))
+* (assert (= x2 (concat x3 x3)))
+* (assert (= y1 (concat y2 y2)))
+* (assert (= y2 (concat y3 y3)))
+* (check-sat-assuming ( (not (= x3 y3)) ))
+* unsat
+* #variable= 11 #constraint= 14
++1 x10 -1 x6 = 0;
++1 x10 -1 x7 = 0;
++1 x5 -1 x1 = 0;
++1 x10 -1 x8 = 0;
++1 x5 -1 x2 = 0;
++1 x10 -1 x9 = 0;
++1 x5 -1 x3 = 0;
++1 x5 -1 x4 = 0;
++1 x1 +2 x2 +4 x3 +8 x4 -1 x6 -2 x7 -4 x8 -8 x9 = 0;
++1 x5 +1 x10 -1 x11 >= 0;
++1 x5 -1 x10 +1 x11 >= 0;
+-1 x5 +1 x10 +1 x11 >= 0;
+-1 x5 -1 x10 -1 x11 >= -2;
++1 x11 >= 1;

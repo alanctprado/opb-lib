@@ -1,0 +1,22 @@
+* ; SCRUBBER: grep set-logic
+* ; EXPECT: (set-logic QF_UFBVNIA)
+* ; EXIT: 0
+* ; Regression test to detect invalid post-assert logic string (QF_UFBVNA)
+* (set-logic QF_BV)
+* (set-option :solve-bv-as-int sum)
+* (set-option :output post-asserts)
+* (declare-const a (_ BitVec 1))
+* (assert (not (= a #b0)))
+* (check-sat)
+* sat
+;; post-asserts start
+(set-logic QF_UFBVNIA)
+(define-fun @purify_2 () Int 1)
+(define-fun a () (_ BitVec 1) ((_ int2bv 1) @purify_2))
+(assert true)
+(assert true)
+(assert true)
+(assert true)
+(check-sat)
+;; post-asserts end
+* #variable= 0 #constraint= 0

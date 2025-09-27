@@ -1,0 +1,24 @@
+* (set-option :incremental false)
+* (set-info :status unsat)
+* (set-logic QF_BV)
+* (declare-fun x () (_ BitVec 5))
+* (assert (= ((_ extract 4 1) x) ((_ extract 3 0) x)))
+* (check-sat-assuming ( (not (= ((_ extract 4 4) x) ((_ extract 0 0) x))) ))
+* unsat
+* #variable= 16 #constraint= 16
++1 x5 -1 x10 = 0;
++1 x7 -1 x12 = 0;
++1 x8 -1 x13 = 0;
++1 x6 -1 x11 = 0;
++1 x6 -1 x1 = 0;
++1 x7 -1 x2 = 0;
++1 x8 -1 x3 = 0;
++1 x9 -1 x4 = 0;
++1 x1 +2 x2 +4 x3 +8 x4 -1 x10 -2 x11 -4 x12 -8 x13 = 0;
++1 x15 +1 x16 -1 x14 >= 0;
++1 x15 -1 x16 +1 x14 >= 0;
+-1 x15 +1 x16 +1 x14 >= 0;
+-1 x15 -1 x16 -1 x14 >= -2;
++1 x9 -1 x15 = 0;
++1 x5 -1 x16 = 0;
++1 x14 >= 1;

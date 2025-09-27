@@ -1,0 +1,19 @@
+* (set-option :incremental false)
+* (set-info :status sat)
+* (set-logic QF_BV)
+* (declare-fun v0 () (_ BitVec 4))
+* (check-sat-assuming ( (= (_ bv0 1) ((_ extract 0 0) (bvadd (_ bv1 4) (bvnot v0)))) ))
+* sat
+* #variable= 19 #constraint= 12
++1 x7 +2 x8 +4 x9 +8 x10 +1 x11 +2 x12 +4 x13 +8 x14 -1 x3 -2 x4 -4 x5 -8 x6 -16 x19 = 0;
++1 x15 +1 x11 = 1;
++1 x3 -1 x2 = 0;
++1 x18 +1 x14 = 1;
++1 x17 +1 x13 = 1;
++1 x10 = 0;
++1 x9 = 0;
++1 x7 = 1;
++1 x1 = 0;
++1 x16 +1 x12 = 1;
++1 x8 = 0;
++1 x1 -1 x2 = 0;

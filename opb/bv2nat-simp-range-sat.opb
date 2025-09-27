@@ -1,0 +1,26 @@
+* ; COMMAND-LINE: --solve-bv-as-int=sum
+* ; EXPECT: sat
+* (set-logic ALL)
+* (set-info :status sat)
+* (declare-fun t () (_ BitVec 16))
+* (assert (not (and (<= 0 (bv2nat t)) (< (bv2nat t) 65535))))
+* (check-sat)
+* sat
+* #variable= 32 #constraint= 17
++1 x32 = 1;
++1 x31 = 1;
++1 x30 = 1;
++1 x29 = 1;
++1 x19 = 1;
++1 x17 = 1;
++1 x18 = 1;
++1 x20 = 1;
++1 x1 +2 x2 +4 x3 +8 x4 +16 x5 +32 x6 +64 x7 +128 x8 +256 x9 +512 x10 +1024 x11 +2048 x12 +4096 x13 +8192 x14 +16384 x15 +32768 x16 -1 x17 -2 x18 -4 x19 -8 x20 -16 x21 -32 x22 -64 x23 -128 x24 -256 x25 -512 x26 -1024 x27 -2048 x28 -4096 x29 -8192 x30 -16384 x31 -32768 x32 = 0;
++1 x21 = 1;
++1 x22 = 1;
++1 x23 = 1;
++1 x24 = 1;
++1 x25 = 1;
++1 x26 = 1;
++1 x27 = 1;
++1 x28 = 1;

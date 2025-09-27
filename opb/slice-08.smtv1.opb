@@ -1,0 +1,20 @@
+* (set-option :incremental false)
+* (set-info :status sat)
+* (set-logic QF_BV)
+* (declare-fun x () (_ BitVec 5))
+* (assert (= ((_ extract 4 3) x) ((_ extract 1 0) x)))
+* (check-sat-assuming ( (not (= ((_ extract 4 4) x) ((_ extract 0 0) x))) ))
+* sat
+* #variable= 11 #constraint= 12
++1 x3 -1 x8 = 0;
++1 x6 -1 x1 = 0;
++1 x4 -1 x9 = 0;
++1 x7 -1 x2 = 0;
++1 x1 +2 x2 -1 x8 -2 x9 = 0;
++1 x11 +1 x12 -1 x10 >= 0;
++1 x11 -1 x12 +1 x10 >= 0;
+-1 x11 +1 x12 +1 x10 >= 0;
+-1 x11 -1 x12 -1 x10 >= -2;
++1 x7 -1 x11 = 0;
++1 x3 -1 x12 = 0;
++1 x10 >= 1;

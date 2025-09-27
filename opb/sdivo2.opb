@@ -1,0 +1,25 @@
+* ; EXPECT: sat
+* ; COMMAND-LINE: 
+* ; COMMAND-LINE: --solve-bv-as-int=sum
+* (set-logic QF_BV)
+* (declare-const v (_ BitVec 3))
+* (assert (not (bvsdivo v v)))
+* (check-sat)
+* sat
+* #variable= 9 #constraint= 16
++1 x7 = 0;
+-1 x6 +1 x9 +1 x3 >= 0;
++1 x1 +1 x2 +1 x3 >= 1;
++1 x5 +1 x8 -1 x2 >= 0;
++1 x6 +1 x9 -1 x3 >= 0;
++1 x4 +1 x7 -1 x1 >= 0;
++1 x4 -1 x7 +1 x1 >= 0;
+-1 x4 -1 x7 -1 x1 >= -2;
+-1 x5 -1 x8 -1 x2 >= -2;
++1 x9 = 1;
+-1 x6 -1 x9 -1 x3 >= -2;
+-1 x4 +1 x7 +1 x1 >= 0;
++1 x5 -1 x8 +1 x2 >= 0;
++1 x6 -1 x9 +1 x3 >= 0;
+-1 x5 +1 x8 +1 x2 >= 0;
++1 x8 = 0;

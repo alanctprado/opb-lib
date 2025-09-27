@@ -1,0 +1,12 @@
+* (set-option :incremental false)
+* (set-info :status sat)
+* (set-logic QF_BV)
+* (declare-fun v0 () (_ BitVec 4))
+* (check-sat-assuming ( (bvsge ((_ extract 3 0) (bvmul (_ bv1 4) v0)) (_ bv0 4)) ))
+* sat
+* #variable= 8 #constraint= 5
++1 x8 = 0;
++1 x7 = 0;
++1 x6 = 0;
++1 x5 = 0;
++1 x1 +2 x2 +4 x3 -8 x4 -1 x5 -2 x6 -4 x7 +8 x8 >= 0;
